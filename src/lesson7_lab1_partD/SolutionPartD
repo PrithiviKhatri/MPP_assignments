@@ -1,0 +1,18 @@
+Issue was with how the hashmap works.If the hashcode of two objects are same , then hashmap uses equals method of object to see 
+if they are equal .If they are unequal , the object is put in the same bucket of the hashcode .Thus , a single bucket can have 
+more than two objects.
+
+//Part of code
+if(!tracker.containsKey(e)) {
+			System.out.println(e.getName());	
+				tracker.put(e, e);
+				noDupsList.add(e);
+			} else {
+				tracker.get(e).setVisited(true);
+			}
+			
+here else part is changing the default value of Visit from false to true ,which makes two employee objects unequal.And these unequal objects 
+are put in the same bucket in the hashmap as they have same  hashcode.Thus, hashmap has duplicate employee object with it,though they differ 
+only on the value of Visited.
+
+solution is to remove the else part which sets value of Visited boolean. 
