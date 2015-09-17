@@ -1,0 +1,10 @@
+Issue was with equals method of Employee.
+Actually ,Employee was not overriding the Object equal method,since equals method of Employee is taking Employee as an argument 
+not Object as argument.Hence ,contains method of list is calling Object's equal method which is always returning false.
+Solution :Override the equals methods in Employee.
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee e=(Employee)obj;
+		return e.name.equals(name) && e.salary==salary;
+	}

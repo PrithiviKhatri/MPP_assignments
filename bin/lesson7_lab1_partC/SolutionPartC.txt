@@ -1,0 +1,10 @@
+Issue was because Employee class has not implemented the hashcode method.
+ContainsKey method of hashmap uses hashcode method of an object to assign the postion of key part of hashmap.If the hashcode method of 
+an object is not overriden, same object is placed into  the different bucket in hashmap .Thus containsKey cannot find the same Employee
+in the same bucket and returns false, thus allowing same employee to be treated as different keys.
+Solution to override hashcode in Employee class:
+
+@Override
+	public int hashCode() {
+		return this.getSalary() ;
+	};
