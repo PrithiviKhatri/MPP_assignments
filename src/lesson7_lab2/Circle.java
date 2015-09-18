@@ -13,8 +13,8 @@ public class Circle implements ClosedCurve {
 		this.radius = radius;
 	}
 	
-//	@Override
-//	public double computePerimeter() {
-//		return 2 * Math.PI * radius;
-//	}
+	@Override
+	public double computePerimeter() {
+		return 2 * Math.PI * radius;
+	}
 }
