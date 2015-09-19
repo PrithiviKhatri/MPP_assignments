@@ -1,5 +1,9 @@
 package lesson7_lab5;
 
+
 public interface QuackBehaviour {
-	void quack();
+	default void quack(){
+		System.out.println("quacking");
+	}
+	
 }
