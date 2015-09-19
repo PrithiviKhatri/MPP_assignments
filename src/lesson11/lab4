@@ -1,0 +1,26 @@
+
+	public static double sum(Collection<? extends Number> nums) {
+		double s = 0.0;
+		for (Number num : nums)
+			s += num.doubleValue();
+		return s;
+	}
+
+	
+	
+	a>
+		List<Integer> ints = new ArrayList<Integer>();
+		ints.add(1);
+		ints.add(2);
+		List<? extends Number> nums = ints;
+		double db1 = sum(nums);
+		nums.add(3.14); ----->compiler error occurs here because now the list becomes read-only.
+		
+	b>
+			List<Object> objs = new ArrayList<Object>();
+		objs.add(1);
+		objs.add("two");
+		List<? super Integer> ints = objs;
+		ints.add(3);
+		double db1 = sum(ints); ----->compiler error occurs here because we are passing list which only stores type super of Integer
+		                              to the function which only takes subclass of Number
